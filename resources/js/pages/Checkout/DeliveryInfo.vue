@@ -1,0 +1,262 @@
+<template>
+  <div>
+    <LeftNav />
+    <main>
+      <!-- TOP NAV BAR -->
+      <TopNav />
+      <!--CHECKOUT-->
+      <b-container>
+        <h1 class="title">Trebaju nam tvoje informacije</h1>
+        <b-row>
+          <b-col cols="1" class="steps">
+            <h2 :class="{active:$route.name==='checkoutUser'}">Početak</h2>
+            <h2 :class="{active:$route.name==='deliveryInfo'}">Adresa</h2>
+            <h2 :class="{active:$route.name==='paymentInfo'}">Plaćanje i dostava</h2>
+            <h2 :class="{active:$route.name==='orderSummary'}">Potvrdi</h2>
+          </b-col>
+          <b-col cols="1">
+            <svg
+              width="45"
+              height="613"
+              viewBox="0 0 45 613"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="22.8929" cy="211.893" r="21.8929" fill="#8ED974" />
+              <circle cx="22.8929" cy="400.893" r="20.8929" stroke="#8ED974" stroke-width="2" />
+              <path d="M22.8169 43.7856L22.8169 189.745" stroke="#8ED974" stroke-width="2" />
+              <path d="M22.8169 233.524L22.8169 379.484" stroke="#8ED974" stroke-width="2" />
+              <circle cx="22.8167" cy="591.107" r="20.8929" stroke="#8ED974" stroke-width="2" />
+              <path
+                d="M23.9352 593.893L19.4802 593.897C19.2102 593.897 18.995 593.827 18.8346 593.687C18.6741 593.547 18.5936 593.373 18.593 593.163C18.5923 592.953 18.6717 592.752 18.8311 592.562L24.4805 585.778C24.7197 585.508 24.9692 585.373 25.2292 585.372C25.4392 585.372 25.6345 585.447 25.8149 585.597C26.1157 585.837 26.2663 586.062 26.267 586.272C26.2674 586.392 26.2128 586.532 26.1033 586.692L25.924 586.932L25.9404 592.302L27.2754 592.301L27.2802 593.891L25.9452 593.892L25.9516 596.007L23.9416 596.008L23.9352 593.893ZM24.0354 592.303L24.0249 588.868L21.1704 592.306L24.0354 592.303Z"
+                fill="#394241"
+              />
+              <path
+                d="M23.1377 407.158C21.9677 407.159 20.9869 406.895 20.1953 406.365C19.4037 405.836 18.8413 405.051 18.5081 404.012L20.3513 403.41C20.5436 404.15 20.8702 404.69 21.3312 405.029C21.8022 405.359 22.4027 405.524 23.1327 405.523C24.6927 405.522 25.4707 404.861 25.4667 403.541C25.465 402.971 25.3187 402.541 25.0278 402.252C24.7369 401.952 24.3364 401.802 23.8264 401.802C23.6164 401.803 23.4115 401.833 23.2117 401.893L23.0025 402.163C22.8232 402.393 22.6436 402.508 22.4636 402.509C22.2836 402.509 22.0232 402.394 21.6825 402.164C21.4721 402.014 21.3666 401.864 21.3661 401.714C21.3657 401.574 21.4401 401.384 21.5894 401.144L23.5751 398.098L21.1451 398.1L20.6991 399.42L19.1511 398.431L19.8053 396.511L26.0903 396.506C26.3703 396.505 26.5804 396.545 26.7206 396.625C26.8609 396.695 26.9313 396.825 26.9318 397.015C26.9322 397.125 26.9026 397.27 26.8432 397.45C26.754 397.71 26.6445 397.885 26.5148 397.975C26.385 398.055 26.1851 398.096 25.9151 398.096L25.6151 398.096L24.1071 400.377C24.3169 400.307 24.5668 400.272 24.8568 400.272C25.3368 400.271 25.7771 400.396 26.1779 400.646C26.5787 400.895 26.8998 401.27 27.1413 401.77C27.3828 402.26 27.5046 402.85 27.5067 403.54C27.5089 404.26 27.3358 404.895 26.9875 405.445C26.6492 405.985 26.1504 406.406 25.4914 406.706C24.8323 407.007 24.0477 407.157 23.1377 407.158Z"
+                fill="#394241"
+              />
+              <path
+                d="M18.1067 220.012C17.5934 220.013 17.2338 219.947 17.0281 219.815C16.837 219.683 16.7409 219.42 16.7397 219.024C16.7378 218.408 16.8172 218.004 16.978 217.813C17.1534 217.623 17.4391 217.52 17.835 217.505C18.2288 216.771 18.7402 216.133 19.3692 215.589C20.0129 215.046 20.8763 214.415 21.9595 213.695C22.7646 213.181 23.4012 212.741 23.8694 212.374C24.3376 211.992 24.725 211.567 25.0315 211.097C25.3528 210.627 25.5125 210.107 25.5108 209.535C25.5081 208.64 25.2933 207.958 24.8666 207.489C24.4545 207.02 23.8231 206.786 22.9724 206.787C21.9457 206.787 21.1766 207.059 20.6649 207.602C20.1679 208.146 19.8701 209.077 19.7714 210.397L16.9766 210.135C17.0024 208.977 17.2633 207.964 17.7594 207.099C18.2701 206.233 18.9647 205.565 19.8433 205.095C20.7365 204.625 21.7771 204.39 22.9651 204.389C24.7251 204.387 26.0832 204.848 27.0393 205.771C28.0101 206.695 28.498 207.948 28.5028 209.532C28.5053 210.354 28.3095 211.087 27.9155 211.733C27.5361 212.378 27.0685 212.929 26.5125 213.384C25.9712 213.839 25.2542 214.367 24.3613 214.97C23.5856 215.498 22.971 215.939 22.5174 216.291C22.0784 216.643 21.7276 217.032 21.4649 217.458L26.1509 217.454L26.7626 216.046L29.3393 216.924L28.0067 220.005L18.1067 220.012Z"
+                fill="white"
+              />
+              <path d="M22.8167 423.261L22.8167 569.221" stroke="#8ED974" stroke-width="2" />
+              <circle cx="22.8929" cy="21.8929" r="21.8929" fill="#8ED974" />
+              <path
+                d="M32.1266 13.1379C31.2241 12.6428 30.2175 13.5976 29.6274 14.1635C28.2737 15.5074 27.1282 17.0635 25.8438 18.4781C24.4206 20.0342 23.1016 21.5903 21.6437 23.111C20.8106 23.9598 19.9081 24.8793 19.3528 25.9403C18.1031 24.7024 17.0271 23.3585 15.6386 22.2623C14.632 21.4842 12.9658 20.9184 13.0005 22.7927C13.07 25.233 15.1874 27.8501 16.7494 29.5122C17.4089 30.2195 18.2767 30.9622 19.2833 30.9976C20.4982 31.0683 21.7478 29.5829 22.4768 28.7695C23.7612 27.3549 24.8025 25.7634 25.9827 24.3135C27.51 22.4037 29.072 20.5293 30.5646 18.5842C31.5018 17.3817 34.4523 14.411 32.1266 13.1379ZM14.5278 22.6513C14.4931 22.6513 14.4584 22.6513 14.3889 22.6866C14.2501 22.6513 14.146 22.6159 14.0071 22.5451C14.1112 22.4744 14.2848 22.5098 14.5278 22.6513Z"
+                fill="white"
+              />
+            </svg>
+          </b-col>
+          <b-col cols="10" class="delivery-info">
+            <div class="top-title">
+              <h1>Adresa</h1>
+            </div>
+            <div class="form">
+              <b-row>
+                <b-col cols="6">
+                  <label>Ulica i kućni broj *</label>
+                  <b-form-input type="text" v-model="deliveryInfo.address"></b-form-input>
+                  <label>Poštanski broj *</label>
+                  <b-form-input type="text" v-model="deliveryInfo.zipCode"></b-form-input>
+                </b-col>
+                <b-col cols="6">
+                  <label>Zemlja *</label>
+                  <b-form-input type="text" v-model="deliveryInfo.country"></b-form-input>
+                  <label>Mjesto *</label>
+                  <b-form-input type="text" v-model="deliveryInfo.city"></b-form-input>
+                </b-col>
+              </b-row>
+            </div>
+            <div class="buttons">
+              <Button @click="$router.back()" class="back">Nazad</Button>
+              <Button
+                @click="validateDeliveryInfo"
+                :disabled="validating"
+                :loading="validating"
+                class="continue"
+              >Nastavi</Button>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </main>
+  </div>
+</template>
+
+<script>
+import LeftNav from "../../components/LeftNav";
+import TopNav from "../../components/TopNav";
+export default {
+  data() {
+    return {
+      validating: false
+    };
+  },
+  computed: {
+    //TODO : Dodati podatke automatski ako se user ulogira
+    deliveryInfo() {
+      if (this.$store.state.order.deliveryInfo) {
+        return this.$store.state.order.deliveryInfo;
+      } else if (this.$store.state.user.status) {
+      } else {
+        return {
+          deliveryInfo: {
+            address: "",
+            zipCode: "",
+            country: "",
+            city: ""
+          }
+        };
+      }
+    }
+  },
+  components: {
+    LeftNav,
+    TopNav
+  },
+  methods: {
+    async validateDeliveryInfo() {
+      if (this.deliveryInfo.address.trim() == "")
+        return this.error("Potrebno je navesti adresu!");
+      else if (this.deliveryInfo.zipCode.trim() == "")
+        return this.error("Potrebno je navesti poštanski broj!");
+      else if (this.deliveryInfo.country.trim() == "")
+        return this.error("Potrebno je navesti zemlju!");
+      else if (this.deliveryInfo.city.trim() == "")
+        return this.error("Potrebno je navesti grad!");
+      this.checkDeliveryInfo();
+    },
+    async checkDeliveryInfo() {
+      this.validating = true;
+      const res = await this.callApi(
+        "post",
+        "order/validate-delivery",
+        this.deliveryInfo
+      );
+      if (res.status === 200) {
+        this.$store.commit("addDeliveryInfoToOrder", this.deliveryInfo);
+        window.location = "/#/payment-info";
+      } else if (res.status === 422) {
+        if (res.data.errors.address) {
+          this.swr(res.data.errors.address[0]);
+        }
+        if (res.data.errors.zipCode) {
+          this.swr(res.data.errors.zipCode[0]);
+        }
+        if (res.data.errors.country) {
+          this.swr(res.data.errors.country[0]);
+        }
+        if (res.data.errors.city) {
+          this.swr(res.data.errors.city[0]);
+        }
+      }
+      this.validating = false;
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.title {
+  color: #4ca456;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.row {
+  margin: 0 70px 0 70px;
+  padding: 0;
+
+  .col-1 {
+    padding: 0;
+  }
+  .steps {
+    display: grid;
+    grid-template-rows: 189px 180px 201px;
+    margin-top: 10px;
+
+    h2 {
+      font-size: 1.2rem;
+      text-align: center;
+
+      &.active {
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .delivery-info {
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    .top-title {
+      padding: 30px 0 0 85px;
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    .form {
+      margin-top: 15px;
+      label {
+        margin: 0 0 5px 5px;
+        font-size: 1.2rem;
+      }
+    }
+    input,
+    .vue-tel-input {
+      width: 350px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      height: 50px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 83px;
+      gap: 150px;
+
+      .ivu-btn.continue {
+        border-radius: 8px;
+        width: 250px;
+        height: 50px;
+        margin-top: 25px;
+        background-color: #4ca456;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        border: 1px solid #4ca456;
+        &:hover {
+          color: #394241;
+          background-color: #f3f3f3;
+          border: 1px solid #4ca456;
+          box-shadow: #4ca45683 0px 20px 100px -20px,
+            #4ca456 0px 20px 60px -30px;
+        }
+        &:focus {
+          border: 1px solid #4ca456;
+          box-shadow: none;
+        }
+      }
+      .ivu-btn.back {
+        border-radius: 8px;
+        width: 250px;
+        height: 50px;
+        margin-top: 25px;
+        color: #394241;
+        border: 1px solid #4ca456;
+        transition: all 0.2s ease-in-out;
+        font-size: 1.2rem;
+        font-weight: 700;
+        &:hover {
+          border: 1px solid #6bc26b;
+          box-shadow: #4ca45683 0px 20px 100px -20px;
+        }
+      }
+    }
+  }
+}
+</style>

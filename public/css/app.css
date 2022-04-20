@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Niramit", sans-serif;
+}
+
+main {
+  margin-left: 300px;
+  padding: 0;
+}
+
+.vue-tel-input .vti__input {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.vue-tel-input .vti__input:active, .vue-tel-input .vti__input:focus, .vue-tel-input .vti__input:focus:active {
+  border: 0;
+  box-shadow: none;
+}
+
+.form-control,
+.vue-tel-input,
+.custom-select {
+  border: 0;
+}
+.form-control:hover,
+.vue-tel-input:hover,
+.custom-select:hover {
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important;
+}
+.form-control:focus,
+.vue-tel-input:focus,
+.custom-select:focus {
+  border: none;
+  box-shadow: 0 0 3pt 1pt #4ca456 !important;
+  outline-width: 0px !important;
+}
+
+.vti__dropdown {
+  transition: 0.3s ease-in;
+  background-color: #4ca456;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+}
+.vti__dropdown:hover {
+  background-color: #4ca456;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.vti__dropdown:focus {
+  box-shadow: none;
+}
+
+.ivu-checkbox:focus {
+  box-shadow: 0 0 3pt 1pt #4ca456 !important;
+  outline-width: 0px;
+}
+
+.ivu-checkbox-checked .ivu-checkbox-inner {
+  border-color: green !important;
+  background-color: green !important;
+}
+.ivu-checkbox-checked .ivu-checkbox-inner:hover {
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important;
+}
+.ivu-checkbox-checked .ivu-checkbox-inner:focus {
+  box-shadow: 0 0 3pt 1pt #4ca456 !important;
+  outline-width: 0px;
+}
+
+option {
+  background-color: #F6F6F6;
+}
+
+.topNavDrop .ivu-select-dropdown {
+  color: #394241;
+  padding: 0 !important;
+  height: 71.2px;
+}
+
+.ivu-dropdown .arrow-down {
+  margin-right: 1rem;
+}
+.ivu-dropdown .ivu-dropdown-menu {
+  padding: 0;
+}
+.ivu-dropdown .ivu-select-dropdown .ivu-dropdown-item {
+  color: #394241;
+  transition: 0.15s ease-in-out;
+}
+.ivu-dropdown .ivu-select-dropdown .ivu-dropdown-item:hover {
+  background-color: #4ca456;
+  color: #4ca456;
+  border-radius: 4px;
+}
+
+.ivu-select {
+  height: 50px;
+  border: none !important;
+  border-radius: 18px;
+  width: 450px;
+}
+.ivu-select .ivu-select-placeholder,
+.ivu-select .ivu-select-selected-value {
+  font-size: 16px !important;
+  color: #899097 !important;
+  margin: 8px 0 0 5px;
+}
+.ivu-select .ivu-select-selection {
+  height: 50px !important;
+  border-radius: 18px;
+  width: 450px;
+  border: 1px solid #ced4da !important;
+}
+.ivu-select .ivu-select-selection:active, .ivu-select .ivu-select-selection:focus, .ivu-select .ivu-select-selection:focus:active {
+  border: 0;
+  box-shadow: none;
+}
+.ivu-select .ivu-select-selection:hover {
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important;
+  border: 1px solid;
+}
+.ivu-select .ivu-select-selection:focus {
+  box-shadow: 0 0 3pt 1pt #4ca456 !important;
+  outline-width: 0px !important;
+}
+.ivu-select .ivu-select-dropdown {
+  min-width: 0 !important;
+  width: 450px !important;
+  border-radius: 18px;
+}
+.ivu-select .ivu-select-dropdown .ivu-select-dropdown-list {
+  padding: 0;
+  margin: 0;
+}
+.ivu-select .ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
+  color: #394241;
+  font-size: 16px !important;
+  border-radius: 16px;
+}
+.ivu-select .ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item:hover {
+  background-color: #f6f6f6 !important;
+}
+
+.filter-group .ivu-select {
+  height: 30px;
+  width: 170px;
+}
+.filter-group .ivu-select .ivu-select-selection {
+  height: 35px !important;
+  width: 170px;
+  border-radius: 8px !important;
+}
+.filter-group .ivu-select .ivu-select-dropdown {
+  width: 170px !important;
+  border-radius: 8px;
+}
+.filter-group .ivu-select .ivu-select-selected-value {
+  margin: 0px 0 0 2px;
+}
+
+.adder .input .ivu-input {
+  text-align: center;
+  height: 30px;
+  width: 50px;
+}
+.adder .input .ivu-input:hover {
+  color: #4ca456;
+  border: 1px solid #4ca456;
+}
+.adder .input .ivu-input:focus {
+  border: 1px solid #DCDEE2;
+  box-shadow: none;
+}
+
+.ivu-rate .ivu-rate-text {
+  margin-bottom: 5px !important;
+}
+
+.badge-color {
+  background: #4ca456 !important;
+  margin-bottom: 5px;
+}
+
+.ivu-drawer-header-inner {
+  font-size: 1rem !important;
+}
+
