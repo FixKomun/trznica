@@ -9,10 +9,10 @@
         <h1 class="title">Provjeri i potvrdi narudžbu!</h1>
         <b-row>
           <b-col cols="1" class="steps">
-            <h2 :class="{active:$route.name==='checkoutUser'}">Početak</h2>
-            <h2 :class="{active:$route.name==='deliveryInfo'}">Adresa</h2>
-            <h2 :class="{active:$route.name==='paymentInfo'}">Plaćanje i dostava</h2>
-            <h2 :class="{active:$route.name==='orderSummary'}">Potvrdi</h2>
+            <h2 :class="{ active: $route.name === 'checkoutUser' }">Početak</h2>
+            <h2 :class="{ active: $route.name === 'deliveryInfo' }">Adresa</h2>
+            <h2 :class="{ active: $route.name === 'paymentInfo' }">Plaćanje i dostava</h2>
+            <h2 :class="{ active: $route.name === 'orderSummary' }">Potvrdi</h2>
           </b-col>
           <b-col cols="1">
             <svg
@@ -60,10 +60,22 @@
               <h2>Adresa dostave</h2>
               <div class="address-info">
                 <div class="address-des">
-                  <h3>{{order.userInfo.firstName + ' ' + order.userInfo.lastName}}</h3>
-                  <h3>{{order.userInfo.address}}</h3>
-                  <h3>{{order.deliveryInfo.zipCode + "," +order.deliveryInfo.city}}</h3>
-                  <h3>{{order.deliveryInfo.country}}</h3>
+                  <h3>
+                    {{
+                    order.userInfo.firstName +
+                    " " +
+                    order.userInfo.lastName
+                    }}
+                  </h3>
+                  <h3>{{ order.userInfo.address }}</h3>
+                  <h3>
+                    {{
+                    order.deliveryInfo.zipCode +
+                    "," +
+                    order.deliveryInfo.city
+                    }}
+                  </h3>
+                  <h3>{{ order.deliveryInfo.country }}</h3>
                 </div>
                 <div class="change">
                   <h4 @click="changeDelivery">promijeni</h4>
@@ -73,7 +85,7 @@
             <div class="payment">
               <h2>Način plaćanja</h2>
               <div class="payment-desc">
-                <h3>{{order.paymentInfo.selectedPayment}}</h3>
+                <h3>{{ order.paymentInfo.selectedPayment }}</h3>
                 <div class="change">
                   <h4 @click="changePayment">promijeni</h4>
                 </div>
@@ -101,17 +113,21 @@
 
             <div class="product-card" v-for="product in cart" :key="product.id">
               <div class="left">
-                <h2>{{product_quantity(product)}}x</h2>
+                <h2>{{ product_quantity(product) }}x</h2>
                 <img :src="product.image" alt />
-                <h2>{{product.description}}</h2>
+                <h2>{{ product.description }}</h2>
               </div>
               <div class="right">
-                <h3 class="price">{{Number(product.price).toFixed(2) + " kn"}}</h3>
+                <h3 class="price">
+                  {{
+                  Number(product.price).toFixed(2) + " kn"
+                  }}
+                </h3>
               </div>
             </div>
             <div class="price-info">
               <h2>Cijena svih proizvoda</h2>
-              <h3>{{total_price.toFixed(2) + " kn"}}</h3>
+              <h3>{{ total_price.toFixed(2) + " kn" }}</h3>
             </div>
             <div class="price-delivery">
               <h2>Dostava</h2>
@@ -119,7 +135,7 @@
             </div>
             <div class="price-total">
               <h2>Ukupno:</h2>
-              <h2 class="total">{{(total_price+30).toFixed(2) + " kn"}}</h2>
+              <h2 class="total">{{ (total_price + 30).toFixed(2) + " kn" }}</h2>
             </div>
             <Button class="order" @click="finalOrder(order,cart)">Naruči</Button>
           </b-col>
@@ -132,6 +148,7 @@
 <script>
 import LeftNav from "../../components/LeftNav";
 import TopNav from "../../components/TopNav";
+
 export default {
   data() {
     return {
@@ -154,6 +171,7 @@ export default {
     LeftNav,
     TopNav
   },
+
   methods: {
     product_quantity(product) {
       return this.$store.getters.getProductQuantity(product);
@@ -174,7 +192,7 @@ export default {
       };
 
       const res = await this.callApi("post", "order/upload", fullOrderInfo);
-      if (res.status === 201) {
+      if (res.status === 200) {
         this.success("Vaša narudžba je zaprimljena");
         localStorage.clear("cart");
         localStorage.clear("order");

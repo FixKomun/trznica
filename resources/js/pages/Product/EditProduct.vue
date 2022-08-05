@@ -110,6 +110,7 @@
 
 <script>
 import LeftNav from "../../components/LeftNav";
+import store from "../../store";
 export default {
   data() {
     return {
@@ -122,6 +123,15 @@ export default {
       canClose: true,
       refImage: ""
     };
+  },
+
+  beforeRouteLeave: (to, from, next) => {
+    const answer = window.confirm("Da li stvarno želite izaći?");
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
   },
   components: {
     LeftNav

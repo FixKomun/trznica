@@ -29,11 +29,13 @@ main {
     border: 0;
 
     &:hover {
+        margin: 0px;
         box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important;
     }
 
     &:focus {
         border: none;
+        margin: 1px;
         box-shadow: 0 0 3pt 1pt #4ca456 !important;
         outline-width: 0px !important;
     }

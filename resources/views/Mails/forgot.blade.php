@@ -1,0 +1,1 @@
+Promjenite vašu lozinku  <a href="http://localhost:8000/#/reset/{{ $token }}">ovdje</a>

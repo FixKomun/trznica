@@ -2,99 +2,83 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ImageRequest;
+use App\Http\Requests\ProductRequest;
+use App\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\User;
 
 class ProductController extends Controller
 {
-    public function uploadProduct(Request $request)
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
-        $this->validate($request, [
-            'name' => 'required|max:70',
-            'price' => 'required|numeric|max:10000',
-            'category_id' => 'required',
-            'description' => 'required|max:500',
-            'image' => 'required',
-            'user_id' => 'required'
+        $this->productRepository = $productRepository;
+    }
+    public function uploadProduct(ProductRequest $request)
+    {
+        $request->validated();
+
+        $productDetails = $request->all([
+            'name',
+            'price',
+            'category_id',
+            'description',
+            'image',
+            'user_id',
         ]);
 
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'image' => $request->image,
-            'user_id' => $request->user_id
+        return response()->json([
+            'data' => $this->productRepository->uploadProduct($productDetails)
         ]);
-
-        return $product;
     }
     public function getCategory()
     {
-        $categories = Category::all();
-        return $categories;
+        return response()->json($this->productRepository->getCategory());
     }
     public function getProduct()
     {
-        $products = Product::with('user')->get();
-        return $products;
+        return $this->productRepository->getProduct();
     }
 
-    public function uploadImage(Request $request)
+    public function uploadImage(ImageRequest $request)
     {
-        $this->validate($request, [
-            'file' => 'required|mimes:jpg,png,jpeg'
+        $request->validated();
+        $fileDetails = $request->all([
+            'file'
         ]);
-
-        $imageName = time() . '.' . $request->file->extension();
-        $request->file->move(public_path('uploads'), $imageName);
-        return $imageName;
+        return response()->json($this->productRepository->uploadImage($fileDetails));
     }
 
     public function deleteImage(Request $request)
     {
-        if (!$request->close)
-            return;
         $imageName = $request->imageName;
-        $imagePath = public_path() . $imageName;
-        if (file_exists($imagePath)) {
-            @unlink($imagePath);
-            return 'file found and deleted';
-        }
-        return 'deleted';
+        return response()->json($this->productRepository->deleteImage($imageName));
     }
 
+    public function editProduct(ProductRequest $request)
+    {
+        $request->validated();
+        $id = $request->id;
+        $productDetails = $request->all([
+            'name',
+            'price',
+            'category_id',
+            'description',
+            'image',
+            'user_id'
+        ]);
+        return response()->json([
+            'data' => $this->productRepository->editProduct($productDetails, $id)
+        ]);
+    }
     public function getProductSingle(Request $request)
     {
-        return Product::with('user')->where('id', $request->id)->get();
+        $id = $request->id;
+        return response()->json($this->productRepository->getProductSingle($id));
     }
 
-    public function editProduct(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|max:70',
-            'price' => 'required|numeric|max:10000',
-            'category_id' => 'required',
-            'description' => 'required|max:450',
-            'image' => 'required',
-            'user_id' => 'required'
-        ]);
-
-        $product = Product::where('id', $request->id)->update([
-            'name' => $request->name,
-            'price' => $request->price,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'image' => $request->image,
-            'user_id' => $request->user_id
-        ]);
-
-        return $product;
-    }
     public function userProducts(Request $request)
     {
-        return Product::where('user_id', $request->id)->with('user')->get();
+        $id = $request->id;
+        return response()->json($this->productRepository->getUserProducts($id));
     }
 }

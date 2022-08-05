@@ -2,32 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserEditRequest;
+use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\UserLoginRequest;
+use App\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class UserController extends Controller
 {
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     public function index()
     {
         return view('welcome');
     }
-    public function register(Request $request)
+    public function register(UserRegisterRequest $request)
     {
-        $this->validate($request, [
-            'firstName' => 'required|max:30',
-            'lastName' => 'required|max:30',
-            'address' => 'required|max:50',
-            'zipCode' => 'bail|required|numeric|',
-            'city' => 'bail|required|string|max:30',
-            'phoneNumber' => 'bail|required|max:17',
-            'email' => 'bail|required|email|unique:users|max:40',
-            'password' => 'bail|required|min:6'
-        ]);
+        $request->validated();
 
-        $password = bcrypt($request->password);
+        $password = $request->safe();
+        $encrypted = bcrypt($password['password']);
 
-        User::create([
+        $userDetails = ([
             'firstName' => $request->firstName,
             'lastName' => $request->lastName,
             'address' => $request->address,
@@ -35,37 +33,54 @@ class UserController extends Controller
             'city' => $request->city,
             'phoneNumber' => $request->phoneNumber,
             'email' => $request->email,
-            'password' => $password
+            'password' => $encrypted
+        ]);
+
+        return response()->json([
+            'data' => $this->userRepository->registerUser($userDetails)
         ]);
     }
 
-    public function login(Request $request)
+    public function login(UserLoginRequest $request)
     {
-        $this->validate($request, [
-            'email' => 'bail|required|email',
-            'password' => 'required'
+        $request->validated();
+        $userDetails = $request->all([
+            'email',
+            'password'
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = Auth::user();
-            return response()->json([
-                'msg' => 'Uspješno ste se ulogirali!',
-                'user' => $user
-            ]);
-        } else {
-            return response()->json([
-                'msg' => 'Nepostojeći korisnik'
-            ], 401);
-        }
+        return $this->userRepository->loginUser($userDetails);
     }
     public function logout()
     {
-        Auth::logout();
-        return redirect("/");
+        return $this->userRepository->logoutUser();
     }
 
     public function getUser()
     {
-        return User::all();
+        return $this->userRepository->getAllUsers();
+    }
+
+    public function getUserSingle(Request $request)
+    {
+        $id = $request->id;
+        return response()->json($this->userRepository->getUserSingle($id));
+    }
+    public function editUser(UserEditRequest $request)
+    {
+        $request->validated();
+        $id = $request->id;
+        $userDetails = [
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'address' => $request->address,
+            'zipCode' => $request->zipCode,
+            'city' => $request->city,
+            'phoneNumber' => $request->phoneNumber,
+        ];
+
+        return response()->json([
+            'data' => $this->userRepository->editUser($userDetails, $id)
+        ]);
     }
 }

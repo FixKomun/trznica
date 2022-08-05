@@ -7,6 +7,7 @@
 <script>
 export default {
   props: ["user"],
+
   mounted() {
     this.$store.commit("updateCartFromLocalStorage");
     this.$store.commit("updateOrderFromLocaleStorage");

@@ -6,67 +6,80 @@
       <TopNav />
       <!--CHECKOUT-->
       <b-container>
-        <h1 class="title">Još samo malo...</h1>
+        <h1 class="title">Provjeri i potvrdi narudžbu!</h1>
         <b-row>
           <b-col cols="1" class="steps">
-            <h2 :class="{active:$route.name==='checkoutUser'}">Početak</h2>
-            <h2 :class="{active:$route.name==='deliveryInfo'}">Adresa</h2>
-            <h2 :class="{active:$route.name==='paymentInfo'}">Plaćanje i dostava</h2>
-            <h2 :class="{active:$route.name==='orderSummary'}">Potvrdi</h2>
+            <h2 :class="{ active: $route.name === 'checkoutUser' }">Početak</h2>
+            <h2 :class="{ active: $route.name === 'deliveryInfo' }">Adresa</h2>
+            <h2 :class="{ active: $route.name === 'paymentInfo' }">Plaćanje i dostava</h2>
           </b-col>
           <b-col cols="1">
             <svg
-              width="45"
-              height="613"
-              viewBox="0 0 45 613"
+              width="44"
+              height="423"
+              viewBox="0 0 44 423"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="22.8929" cy="400.893" r="21.8929" fill="#8ED974" />
-              <path d="M22.8169 43.7856L22.8169 189.745" stroke="#8ED974" stroke-width="2" />
-              <path d="M22.8169 233.524L22.8169 379.484" stroke="#8ED974" stroke-width="2" />
-              <circle cx="22.8167" cy="591.107" r="20.8929" stroke="#8ED974" stroke-width="2" />
+              <circle cx="21.8929" cy="400.893" r="21.8929" fill="#8ED974" />
+              <path d="M21.8169 43.7856L21.8169 189.745" stroke="#8ED974" stroke-width="2" />
+              <path d="M21.8169 233.524L21.8169 379.484" stroke="#8ED974" stroke-width="2" />
               <path
-                d="M23.9352 593.893L19.4802 593.897C19.2102 593.897 18.995 593.827 18.8346 593.687C18.6741 593.547 18.5936 593.373 18.593 593.163C18.5923 592.953 18.6717 592.752 18.8311 592.562L24.4805 585.778C24.7197 585.508 24.9692 585.373 25.2292 585.372C25.4392 585.372 25.6345 585.447 25.8149 585.597C26.1157 585.837 26.2663 586.062 26.267 586.272C26.2674 586.392 26.2128 586.532 26.1033 586.692L25.924 586.932L25.9404 592.302L27.2754 592.301L27.2802 593.891L25.9452 593.892L25.9516 596.007L23.9416 596.008L23.9352 593.893ZM24.0354 592.303L24.0249 588.868L21.1704 592.306L24.0354 592.303Z"
-                fill="#394241"
-              />
-              <path
-                d="M23.2186 410.228C21.5026 410.23 20.0641 409.842 18.903 409.066C17.742 408.289 16.9172 407.139 16.4285 405.614L19.1318 404.732C19.4138 405.817 19.8929 406.608 20.5691 407.107C21.2599 407.59 22.1406 407.831 23.2113 407.83C25.4993 407.829 26.6403 406.86 26.6344 404.924C26.6319 404.088 26.4173 403.457 25.9907 403.032C25.564 402.593 24.9767 402.373 24.2287 402.374C23.9207 402.374 23.6201 402.418 23.3271 402.506L23.0203 402.903C22.7573 403.24 22.4938 403.409 22.2298 403.409C21.9658 403.409 21.584 403.241 21.0843 402.904C20.7756 402.684 20.6209 402.464 20.6203 402.244C20.6196 402.039 20.7288 401.76 20.9477 401.408L23.8601 396.94L20.2961 396.943L19.642 398.879L17.3716 397.429L18.331 394.612L27.549 394.605C27.9597 394.605 28.2678 394.663 28.4735 394.78C28.6792 394.883 28.7824 395.073 28.7833 395.352C28.7838 395.513 28.7404 395.726 28.6532 395.99C28.5224 396.372 28.3618 396.628 28.1716 396.761C27.9813 396.878 27.6881 396.937 27.2921 396.937L26.8521 396.938L24.6403 400.283C24.948 400.18 25.3145 400.129 25.7398 400.128C26.4438 400.128 27.0897 400.311 27.6775 400.677C28.2653 401.043 28.7363 401.593 29.0905 402.326C29.4447 403.044 29.6233 403.909 29.6264 404.921C29.6296 405.977 29.3758 406.909 28.8649 407.716C28.3687 408.508 27.6372 409.125 26.6706 409.566C25.7039 410.006 24.5532 410.227 23.2186 410.228Z"
+                d="M22.2186 410.229C20.5026 410.23 19.0641 409.843 17.903 409.066C16.742 408.29 15.9172 407.139 15.4285 405.614L18.1318 404.732C18.4138 405.817 18.8929 406.609 19.5691 407.107C20.2599 407.59 21.1406 407.832 22.2113 407.831C24.4993 407.829 25.6403 406.86 25.6344 404.924C25.6319 404.088 25.4173 403.458 24.9907 403.033C24.564 402.593 23.9767 402.374 23.2287 402.374C22.9207 402.374 22.6201 402.419 22.3271 402.507L22.0203 402.903C21.7573 403.241 21.4938 403.409 21.2298 403.41C20.9658 403.41 20.584 403.242 20.0843 402.905C19.7756 402.685 19.6209 402.465 19.6203 402.245C19.6196 402.04 19.7288 401.761 19.9477 401.409L22.8601 396.94L19.2961 396.943L18.642 398.88L16.3716 397.43L17.331 394.613L26.549 394.606C26.9597 394.605 27.2678 394.664 27.4735 394.781C27.6792 394.883 27.7824 395.074 27.7833 395.353C27.7838 395.514 27.7404 395.727 27.6532 395.991C27.5224 396.372 27.3618 396.629 27.1716 396.761C26.9813 396.879 26.6881 396.937 26.2921 396.938L25.8521 396.938L23.6403 400.284C23.948 400.181 24.3145 400.129 24.7398 400.129C25.4438 400.128 26.0897 400.311 26.6775 400.677C27.2653 401.044 27.7363 401.593 28.0905 402.326C28.4447 403.045 28.6233 403.91 28.6264 404.922C28.6296 405.978 28.3758 406.909 27.8649 407.716C27.3687 408.509 26.6372 409.125 25.6706 409.566C24.7039 410.007 23.5532 410.228 22.2186 410.229Z"
                 fill="white"
               />
-              <path d="M22.8167 423.261L22.8167 569.221" stroke="#8ED974" stroke-width="2" />
-              <circle cx="22.8929" cy="21.8929" r="21.8929" fill="#8ED974" />
+              <circle cx="21.8929" cy="21.8929" r="21.8929" fill="#8ED974" />
               <path
-                d="M32.1266 13.1379C31.2241 12.6428 30.2175 13.5976 29.6274 14.1635C28.2737 15.5074 27.1282 17.0635 25.8438 18.4781C24.4206 20.0342 23.1016 21.5903 21.6437 23.111C20.8106 23.9598 19.9081 24.8793 19.3528 25.9403C18.1031 24.7024 17.0271 23.3585 15.6386 22.2623C14.632 21.4842 12.9658 20.9184 13.0005 22.7927C13.07 25.233 15.1874 27.8501 16.7494 29.5122C17.4089 30.2195 18.2767 30.9622 19.2833 30.9976C20.4982 31.0683 21.7478 29.5829 22.4768 28.7695C23.7612 27.3549 24.8025 25.7634 25.9827 24.3135C27.51 22.4037 29.072 20.5293 30.5646 18.5842C31.5018 17.3817 34.4523 14.411 32.1266 13.1379ZM14.5278 22.6513C14.4931 22.6513 14.4584 22.6513 14.3889 22.6866C14.2501 22.6513 14.146 22.6159 14.0071 22.5451C14.1112 22.4744 14.2848 22.5098 14.5278 22.6513Z"
+                d="M31.1266 13.1379C30.2241 12.6428 29.2175 13.5976 28.6274 14.1635C27.2737 15.5074 26.1282 17.0635 24.8438 18.4781C23.4206 20.0342 22.1016 21.5903 20.6437 23.111C19.8106 23.9598 18.9081 24.8793 18.3528 25.9403C17.1031 24.7024 16.0271 23.3585 14.6386 22.2623C13.632 21.4842 11.9658 20.9184 12.0005 22.7927C12.07 25.233 14.1874 27.8501 15.7494 29.5122C16.4089 30.2195 17.2767 30.9622 18.2833 30.9976C19.4982 31.0683 20.7478 29.5829 21.4768 28.7695C22.7612 27.3549 23.8025 25.7634 24.9827 24.3135C26.51 22.4037 28.072 20.5293 29.5646 18.5842C30.5018 17.3817 33.4523 14.411 31.1266 13.1379ZM13.5278 22.6513C13.4931 22.6513 13.4584 22.6513 13.3889 22.6866C13.2501 22.6513 13.146 22.6159 13.0071 22.5451C13.1112 22.4744 13.2848 22.5098 13.5278 22.6513Z"
                 fill="white"
               />
-              <circle cx="22.8929" cy="211.893" r="21.8929" fill="#8ED974" />
+              <circle cx="21.8929" cy="211.893" r="21.8929" fill="#8ED974" />
               <path
-                d="M32.1266 203.138C31.2241 202.643 30.2175 203.598 29.6274 204.163C28.2737 205.507 27.1282 207.063 25.8438 208.478C24.4206 210.034 23.1016 211.59 21.6437 213.111C20.8106 213.96 19.9081 214.879 19.3528 215.94C18.1031 214.702 17.0271 213.359 15.6386 212.262C14.632 211.484 12.9658 210.918 13.0005 212.793C13.07 215.233 15.1874 217.85 16.7494 219.512C17.4089 220.22 18.2767 220.962 19.2833 220.998C20.4982 221.068 21.7478 219.583 22.4768 218.77C23.7612 217.355 24.8025 215.763 25.9827 214.313C27.51 212.404 29.072 210.529 30.5646 208.584C31.5018 207.382 34.4523 204.411 32.1266 203.138ZM14.5278 212.651C14.4931 212.651 14.4584 212.651 14.3889 212.687C14.2501 212.651 14.146 212.616 14.0071 212.545C14.1112 212.474 14.2848 212.51 14.5278 212.651Z"
+                d="M31.1266 203.138C30.2241 202.643 29.2175 203.598 28.6274 204.163C27.2737 205.507 26.1282 207.063 24.8438 208.478C23.4206 210.034 22.1016 211.59 20.6437 213.111C19.8106 213.96 18.9081 214.879 18.3528 215.94C17.1031 214.702 16.0271 213.359 14.6386 212.262C13.632 211.484 11.9658 210.918 12.0005 212.793C12.07 215.233 14.1874 217.85 15.7494 219.512C16.4089 220.22 17.2767 220.962 18.2833 220.998C19.4982 221.068 20.7478 219.583 21.4768 218.77C22.7612 217.355 23.8025 215.763 24.9827 214.313C26.51 212.404 28.072 210.529 29.5646 208.584C30.5018 207.382 33.4523 204.411 31.1266 203.138ZM13.5278 212.651C13.4931 212.651 13.4584 212.651 13.3889 212.687C13.2501 212.651 13.146 212.616 13.0071 212.545C13.1112 212.474 13.2848 212.51 13.5278 212.651Z"
                 fill="white"
               />
             </svg>
           </b-col>
-          <b-col cols="10" class="payment-info">
+          <b-col cols="6" class="payment-info">
             <div class="top-title">
               <h1>Način plaćanja</h1>
             </div>
             <b-row class="radio-form">
               <b-col cols="7" class="left-form">
                 <div class="payment-1">
-                  <b-form-radio v-model="paymentInfo.selectedPayment" value="Gotovina"></b-form-radio>
+                  <b-form-radio v-model="selectedPayment" value="Gotovina"></b-form-radio>
                   <div class="payment-1-desc">
-                    <h2>Plaćanje prilikom preuzimanja / pouzećem</h2>
+                    <h2>
+                      Plaćanje prilikom preuzimanja /
+                      pouzećem
+                    </h2>
                     <h3>Plaćanje gotovinom prilikom dostave</h3>
                   </div>
                 </div>
                 <div class="payment-2">
-                  <b-form-radio v-model="paymentInfo.selectedPayment" value="PayPal"></b-form-radio>
+                  <b-form-radio v-model="selectedPayment" value="PayPal"></b-form-radio>
                   <h2>PayPal</h2>
+                  <div
+                    id="paypal-payment"
+                    ref="paypal"
+                    :class="{active:selectedPayment==='PayPal'}"
+                  ></div>
                 </div>
                 <div class="payment-3">
-                  <b-form-radio v-model="paymentInfo.selectedPayment" value="Kartica"></b-form-radio>
-                  <h2>Plaćanje karticom</h2>
+                  <b-form-radio v-model="selectedPayment" value="Kartica"></b-form-radio>
+                  <h2>Plaćanje karticom (Stripe)</h2>
+                </div>
+                <div :class="{active:selectedPayment === 'Kartica'}" id="card-element"></div>
+                <p class="invalidCard">{{cardError}}</p>
+                <div class="remark">
+                  <h2>Napomena</h2>
+                  <b-form-textarea
+                    id="textarea"
+                    v-model="remark"
+                    placeholder="Napomena uz narudžbu (neobavezno)"
+                    rows="3"
+                    max-rows="6"
+                  ></b-form-textarea>
                 </div>
               </b-col>
               <b-col cols="5" class="right-form">
@@ -491,15 +504,81 @@
                   </svg>
                 </div>
               </b-col>
+              <div class="buttons">
+                <Button @click="$router.back()" class="back">Nazad</Button>
+                <Button
+                  @click="processPayment"
+                  :disabled="disabled"
+                  :loading="validating"
+                  class="continue"
+                >Naruči</Button>
+              </div>
             </b-row>
-            <div class="buttons">
-              <Button @click="$router.back()" class="back">Nazad</Button>
-              <Button
-                @click="validatePaymentInfo"
-                :disabled="validating"
-                :loading="validating"
-                class="continue"
-              >Nastavi</Button>
+          </b-col>
+          <b-col cols="4" class="order-summary">
+            <div class="summary-user-info">
+              <h1>Kratak pregled</h1>
+              <div class="address">
+                <h2>Adresa dostave</h2>
+                <div class="address-info">
+                  <div class="address-des">
+                    <h3>
+                      {{
+                      order.userInfo.firstName +
+                      " " +
+                      order.userInfo.lastName
+                      }}
+                    </h3>
+                    <h3>{{ order.userInfo.address }}</h3>
+                    <h3>
+                      {{
+                      order.deliveryInfo.zipCode +
+                      "," +
+                      order.deliveryInfo.city
+                      }}
+                    </h3>
+                    <h3>{{ order.deliveryInfo.country }}</h3>
+                  </div>
+                  <div class="change">
+                    <h4 @click="changeDelivery">promijeni</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery">
+                <h2>Dostava</h2>
+                <div class="delivery-desc">
+                  <h3>GLS</h3>
+                </div>
+              </div>
+            </div>
+            <div class="summary-product-info">
+              <h1>Proizvodi</h1>
+              <div class="product-card" v-for="product in cart" :key="product.id">
+                <div class="left">
+                  <h2>{{ product_quantity(product) }}x</h2>
+                  <img :src="product.image" alt />
+                  <h2>{{ product.description }}</h2>
+                </div>
+                <div class="right">
+                  <h3 class="price">
+                    {{
+                    Number(product.price).toFixed(2) + " kn"
+                    }}
+                  </h3>
+                </div>
+              </div>
+              <div class="price-info">
+                <h2>Cijena svih proizvoda</h2>
+                <h3>{{ total_price.toFixed(2) + " kn" }}</h3>
+              </div>
+              <div class="price-delivery">
+                <h2>Dostava</h2>
+                <h3>30 kn</h3>
+              </div>
+              <div class="price-total">
+                <h2>Ukupno:</h2>
+                <h2 class="total">{{ (total_price + 30).toFixed(2) + " kn" }}</h2>
+              </div>
             </div>
           </b-col>
         </b-row>
@@ -511,37 +590,255 @@
 <script>
 import LeftNav from "../../components/LeftNav";
 import TopNav from "../../components/TopNav";
+import { loadStripe } from "@stripe/stripe-js/pure";
 export default {
   data() {
     return {
-      validating: false
+      cardElement: {},
+      elements: {},
+      stripe: {},
+      style: {
+        base: {
+          fontFamily: "Niramit, sans-serif",
+          fontSize: "1.2rem"
+        }
+      },
+      cardError: "",
+      validating: false,
+      disabled: true,
+      selectedPayment: "",
+      remark: ""
     };
-  },
-  computed: {
-    paymentInfo() {
-      if (this.$store.state.order.paymentInfo)
-        return this.$store.state.order.paymentInfo;
-      else
-        return {
-          paymentInfo: {
-            selectedPayment: ""
-          }
-        };
-    }
   },
   components: {
     LeftNav,
     TopNav
   },
+  computed: {
+    order() {
+      return this.$store.state.order;
+    },
+    cart() {
+      return this.$store.state.cart;
+    },
+    total_price() {
+      return this.$store.getters.totalPrice;
+    },
+    cart_quantity() {
+      let items = this.$store.state.cart;
+      let quantity = 0;
+      for (let i = 0; i < items.length; i++) {
+        quantity += items[i].quantity;
+      }
+      return Number(quantity);
+    }
+  },
+  watch: {
+    cardError: function() {
+      if (this.cardError === "") {
+        this.disabled = false;
+      }
+    },
+    selectedPayment: function() {
+      if (this.selectedPayment === "Gotovina") {
+        this.disabled = false;
+      } else if (this.selectedPayment === "Kartica") {
+        this.disabled = false;
+      } else {
+        this.disabled = true;
+      }
+    }
+  },
+  mounted() {
+    this.initStripe();
+    this.initPayPal();
+  },
   methods: {
-    async validatePaymentInfo() {
-      this.validating = true;
-      if (this.paymentInfo.selectedPayment.trim() == "")
-        return this.error("Potrebno je odabrati način plaćanja!");
+    async initStripe() {
+      this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY, {
+        locale: "hr"
+      });
+      this.elements = this.stripe.elements();
+      this.cardElement = this.elements.create("card", {
+        style: this.style,
+        hidePostalCode: true
+      });
 
-      this.$store.commit("addPaymentInfoToOrder", this.paymentInfo);
-      window.location = "/#/order-summary";
+      this.cardElement.mount("#card-element");
+      // this.$store.commit("addCardElement", this.cardElement);
+
+      this.cardElement.on("change", event => {
+        console.log(event);
+        this.cardError = event.error ? event.error.message : "";
+      });
+    },
+
+    //Slanje order mailova
+    async uploadOrder(orderInfo) {
+      const res = await this.callApi("post", "/order/upload", orderInfo);
+      if (res.status === 200) {
+        this.success(
+          "Vaša narudžba je zaprimljena. Na vaš mail poslana je potvrda narudžbe!"
+        );
+        localStorage.clear("cart");
+        localStorage.clear("order");
+        setTimeout(function() {
+          window.location = "/trznica";
+        }, 1500);
+      } else {
+        this.swr();
+      }
       this.validating = false;
+    },
+
+    async initPayPal() {
+      const script = document.createElement("script");
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=AW0qHXXLthqOIIQ2hH69lr7Wq8K_b2v8PFEUPFNwhaN0V8B4ATYlyshfjXp6k_j-C6dFrCXi_WdmOk7h";
+      script.addEventListener("load", this.setLoaded);
+      document.body.appendChild(script);
+    },
+    setLoaded() {
+      window.paypal
+        .Buttons({
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: "Web tržnica - Paypal",
+                  amount: {
+                    currency_code: "USD",
+                    value: this.total_price
+                  }
+                }
+              ]
+            });
+          },
+          onApprove: async (data, actions, resp) => {
+            const order = await actions.order.capture();
+            this.data;
+            this.success("PayPal plaćanje je uspješno!");
+            let products = JSON.stringify(this.cart);
+            let orderInfo = {
+              firstName: this.order.userInfo.firstName,
+              lastName: this.order.userInfo.lastName,
+              email: this.order.userInfo.email,
+              phoneNumber: this.order.userInfo.phoneNumber,
+              address: this.order.deliveryInfo.address,
+              zipCode: this.order.deliveryInfo.zipCode,
+              country: this.order.deliveryInfo.country,
+              city: this.order.deliveryInfo.city,
+              selectedPayment: this.selectedPayment,
+              products: products
+            };
+            this.uploadOrder(orderInfo);
+          },
+          onError: err => {
+            console.log(err);
+          }
+        })
+        .render(this.$refs.paypal);
+    },
+    async processPayment() {
+      this.validating = true;
+      if (this.selectedPayment == "") {
+        this.validating = false;
+        return this.error("Potrebno je odabrati način plaćanja!");
+      }
+      //Cash payment
+      if (this.selectedPayment == "Gotovina") {
+        this.validating = true;
+        let products = JSON.stringify(this.cart);
+        let orderInfo = {
+          firstName: this.order.userInfo.firstName,
+          lastName: this.order.userInfo.lastName,
+          email: this.order.userInfo.email,
+          phoneNumber: this.order.userInfo.phoneNumber,
+          address: this.order.deliveryInfo.address,
+          zipCode: this.order.deliveryInfo.zipCode,
+          country: this.order.deliveryInfo.country,
+          city: this.order.deliveryInfo.city,
+          selectedPayment: this.selectedPayment,
+          products: products
+        };
+        this.uploadOrder(orderInfo);
+      }
+      //Card payment (STRIPE API)
+      if (this.selectedPayment == "Kartica") {
+        this.validating = true;
+        const { paymentMethod, error } = await this.stripe.createPaymentMethod({
+          type: "card",
+          card: this.cardElement,
+          billing_details: {
+            name: this.order.userInfo.firstName,
+            email: this.order.userInfo.email,
+            address: {
+              line1: this.order.deliveryInfo.address,
+              city: this.order.deliveryInfo.city,
+              postal_code: this.order.deliveryInfo.zipCode
+            }
+          }
+        });
+        if (paymentMethod !== undefined) {
+          let orderInfo = {
+            name: this.order.userInfo.firstName,
+            email: this.order.userInfo.email,
+            address: this.order.deliveryInfo.address,
+            city: this.order.deliveryInfo.city,
+            postal_code: this.order.deliveryInfo.zipCode,
+            payment_method_id: paymentMethod.id,
+            total_price: this.total_price + 30,
+            totalItemsCount: this.cart_quantity,
+            remark: this.remark,
+            cart: this.cart
+          };
+
+          await axios
+            .post("/payment/store-card", orderInfo)
+            .then(resp => {
+              if (resp.status === 200) {
+                this.success("Plaćanje karticom je uspješno.");
+                let products = JSON.stringify(this.cart);
+                let orderInfo = {
+                  firstName: this.order.userInfo.firstName,
+                  lastName: this.order.userInfo.lastName,
+                  email: this.order.userInfo.email,
+                  phoneNumber: this.order.userInfo.phoneNumber,
+                  address: this.order.deliveryInfo.address,
+                  zipCode: this.order.deliveryInfo.zipCode,
+                  country: this.order.deliveryInfo.country,
+                  city: this.order.deliveryInfo.city,
+                  selectedPayment: this.selectedPayment,
+                  products: products
+                };
+                this.uploadOrder(orderInfo);
+              }
+            })
+            .catch(err => {
+              // console.log(err.response);
+              this.cardError = err.response.data.errors;
+              this.validating = false;
+            });
+        }
+        this.validating = false;
+      }
+
+      //PAYPAL Payment (PAYPAL API)
+      if (this.selectedPayment == "PayPal") {
+        console.log("paypal");
+      }
+    },
+
+    product_quantity(product) {
+      return this.$store.getters.getProductQuantity(product);
+    },
+    changeDelivery() {
+      window.location = "/#/delivery-info";
+    }
+  },
+  async created() {
+    if (this.$store.state.order.paymentInfo) {
+      this.paymentInfo.selectedPayment = this.$store.state.order.paymentInfo.selectedPayment;
     }
   }
 };
@@ -557,7 +854,6 @@ export default {
 }
 
 .row {
-  margin: 0 70px 0 70px;
   padding: 0;
 
   .col-1 {
@@ -580,10 +876,14 @@ export default {
     }
   }
   .payment-info {
+    height: 100%;
+    padding-bottom: 50px;
+    padding-left: 50px;
     background-color: #f6f6f6;
     border-radius: 8px;
     .top-title {
-      padding: 30px 0 0 85px;
+      padding: 30px 0 0 10px;
+      margin-bottom: 1rem;
       h1 {
         font-size: 1.8rem;
       }
@@ -608,8 +908,39 @@ export default {
         gap: 15px;
         margin-bottom: 15px;
       }
+      #card-element {
+        border-radius: 0.25rem;
+        padding: 12px;
+        --tw-border-opacity: 1;
+        border: 1px solid rgba(156, 163, 175, var(--tw-border-opacity));
+        height: 44px;
+        width: 100%;
+        --tw-bg-opacity: 1;
+        background-color: rgba(243, 244, 246, var(--tw-border-opacity));
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+      #paypal-payment {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+      p.invalidCard {
+        margin: 5px 0 0 15px;
+        font-weight: lighter;
+        color: red;
+      }
+      .remark {
+        position: relative;
+        padding-top: 10px;
+        z-index: 99;
+      }
       .right-form {
-        margin-top: 60px;
+        margin-top: 90px;
         svg {
           margin-bottom: 10px;
         }
@@ -619,14 +950,13 @@ export default {
     .buttons {
       display: flex;
       justify-content: flex-start;
-      margin-left: 83px;
-      gap: 150px;
-
+      gap: 70px;
+      z-index: 100;
       .ivu-btn.continue {
         border-radius: 8px;
         width: 250px;
         height: 50px;
-        margin-top: 25px;
+        margin-top: 40px;
         background-color: #4ca456;
         color: white;
         border: none;
@@ -650,7 +980,7 @@ export default {
         border-radius: 8px;
         width: 250px;
         height: 50px;
-        margin-top: 25px;
+        margin-top: 40px;
         color: #394241;
         border: 1px solid #4ca456;
         transition: all 0.2s ease-in-out;
@@ -660,6 +990,107 @@ export default {
           border: 1px solid #6bc26b;
           box-shadow: #4ca45683 0px 20px 100px -20px;
         }
+      }
+    }
+  }
+  .summary-user-info {
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    //width: 350px;
+    padding: 20px 20px 0 20px;
+    > * {
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: lighter;
+    }
+    .change {
+      display: flex;
+
+      h4 {
+        font-size: 1rem;
+        font-weight: lighter;
+        font-style: italic;
+        cursor: pointer;
+        align-self: flex-end;
+        &:hover {
+          color: #4ca456;
+        }
+      }
+    }
+    .address-info,
+    .delivery-desc {
+      display: flex;
+      justify-content: space-between;
+    }
+    .address-info {
+      border-bottom: 1px solid #adadad;
+    }
+  }
+  .summary-product-info {
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    //width: 560px;
+    padding: 0px 20px 0 20px;
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .product-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      .left {
+        display: flex;
+        width: 80%;
+        gap: 20px;
+        align-items: center;
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        width: 20%;
+        justify-content: flex-end;
+      }
+      img {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+    .price-info,
+    .price-delivery,
+    .price-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #adadad;
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: lighter;
       }
     }
   }

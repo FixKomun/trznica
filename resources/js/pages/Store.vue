@@ -8,36 +8,8 @@
 
       <!--STORE -->
       <div class="store">
-        <div class="category-list">
-          <ul v-for="category in categoryList" :key="category.id">
-            <li>{{ category.categoryName }}</li>
-          </ul>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 1L8 8L1 15"
-              stroke="#394241"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M8 1L15 8L8 15"
-              stroke="#394241"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-        <div class="break-line"></div>
         <div class="filter">
-          <h3 class="filterClick">Filtriraj</h3>
+          <h3 class="filterClick" @click="clearFilter">Ukloni filter</h3>
           <div class="filter-group">
             <div class="filter-sort">
               <h3>Sortiraj:</h3>
@@ -61,8 +33,12 @@
             </div>
             <div class="filter-opg">
               <h3>Proizvođač:</h3>
-              <Select v-model="OPGSeleceted" placeholder>
-                <Option v-for="opg in opgList" :value="opg.id" :key="opg.id">{{ opg.opgName }}</Option>
+              <Select v-model="userSelected" placeholder>
+                <Option
+                  v-for="user in userList"
+                  :value="user.id"
+                  :key="user.id"
+                >{{ user.firstName + ' ' + user.lastName }}</Option>
               </Select>
             </div>
           </div>
@@ -70,13 +46,14 @@
         <div class="total-products">
           <h3>
             <span>ukupno:</span>
-            {{ productList.length }}
+            {{ filteredList.length }}
           </h3>
+          <div class="break-line"></div>
         </div>
 
         <!-- MAIN PART OF STORE ( PRODUCT LIST) -->
         <div class="product-list">
-          <div v-for="(product, i) in productList" :key="i" class="products">
+          <div v-for="(product, i) in filteredList" :key="i" class="products">
             <div class="left">
               <img :src="product.image" alt />
             </div>
@@ -124,16 +101,15 @@ export default {
     return {
       productList: [],
       categoryList: [],
-      opgList: [],
+      userList: [],
       sortSelected: null,
       categorySelected: null,
-      OPGSeleceted: null,
-
+      userSelected: null,
+      search: "",
       sortTypes: [
-        { value: 0, text: "Popularno" },
-        { value: 1, text: "Najnovije" },
-        { value: 2, text: "Viša cijena" },
-        { value: 3, text: "Niža cijena" }
+        { value: 0, text: "Najnovije" },
+        { value: 1, text: "Viša cijena" },
+        { value: 2, text: "Niža cijena" }
       ]
     };
   },
@@ -147,11 +123,50 @@ export default {
     const res2 = await this.callApi("get", "/get-product");
     if (res2.status === 200) {
       this.productList = res2.data;
+      this.$store.state.searchList = res2.data;
+    } else {
+      this.swr();
+    }
+    const res3 = await this.callApi("get", "/get-user");
+    if (res3.status === 200) {
+      this.userList = res3.data;
     } else {
       this.swr();
     }
   },
-  computed: {},
+  computed: {
+    //SEARCH FILTER
+    filteredList() {
+      if (this.search != "") {
+        return this.productList.filter(product =>
+          product.name.toLowerCase().includes(this.search.toLowerCase())
+        );
+      } else if (this.categorySelected) {
+        let tempProductList = this.productList;
+        if (this.userSelected && this.categorySelected) {
+          tempProductList = tempProductList.filter(product => {
+            return (
+              product.category_id == this.categorySelected &&
+              product.user_id == this.userSelected
+            );
+          });
+          return tempProductList;
+        }
+        tempProductList = tempProductList.filter(product => {
+          return product.category_id == this.categorySelected;
+        });
+        return tempProductList;
+      } else if (this.userSelected) {
+        let temp2 = this.productList;
+        temp2 = temp2.filter(product => {
+          return product.user_id == this.userSelected;
+        });
+        return temp2;
+      } else {
+        return this.productList;
+      }
+    }
+  },
   methods: {
     addProduct(product) {
       this.$store.commit("addToCart", product);
@@ -164,6 +179,37 @@ export default {
     },
     checkValue() {
       console.log("asdl");
+    },
+    clearFilter() {
+      this.sortSelected = null;
+      this.categorySelected = null;
+      this.userSelected = null;
+    }
+  },
+  watch: {
+    "$store.state.search": function() {
+      this.search = this.$store.state.search;
+    },
+
+    sortSelected: function() {
+      //0-Najnovije
+      if (this.sortSelected == 0) {
+        this.productList.sort(function(a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      }
+      //1-Viša cijena
+      if (this.sortSelected == 1) {
+        this.productList.sort(function(a, b) {
+          return b.price - a.price;
+        });
+      }
+      //2-Niža cijena
+      if (this.sortSelected == 2) {
+        this.productList.sort(function(a, b) {
+          return a.price - b.price;
+        });
+      }
     }
   },
   components: {
@@ -177,6 +223,7 @@ export default {
 .store {
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-top: 2rem;
   .category-list {
     display: flex;
     flex-direction: row;
@@ -204,7 +251,7 @@ export default {
     height: 1px;
     width: 100%;
     background-color: #dddddd;
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .filter {
     margin-left: 2rem;
@@ -213,12 +260,15 @@ export default {
       font-size: 16px;
     }
     .filterClick {
-      width: 80px;
+      width: 100px;
       cursor: pointer;
       transition: all 0.2s ease-out;
       text-align: center;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(98, 105, 119, 0.315);
+      border-radius: 8px;
+      padding: 6px;
       &:hover {
-        padding: 2px;
         box-shadow: 0 0 3pt 1pt #4ca456;
         border-radius: 8px;
       }

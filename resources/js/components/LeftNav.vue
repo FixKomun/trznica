@@ -35,9 +35,6 @@
       <router-link :class="{active:$route.name==='store'}" to="/trznica">
         <h1>TRŽNICA</h1>
       </router-link>
-      <router-link :class="{active:$route.name==='opg'}" to="/opg">
-        <h1>OPG</h1>
-      </router-link>
       <router-link :class="{active:$route.name==='about'}" to="/o-projektu">
         <h1>O PROJEKTU</h1>
       </router-link>

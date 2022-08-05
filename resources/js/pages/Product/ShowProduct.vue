@@ -69,6 +69,7 @@
       </b-row>
 
       <!--Similar products  NEEDS FIXING-->
+      <!--
       <div class="similar-products">
         <h2>Slični proizvodi</h2>
         <div class="similar-product-list">
@@ -77,8 +78,8 @@
           <img :src="productData.image" alt />
         </div>
       </div>
+      -->
     </main>
-    <div class="empty-box"></div>
   </div>
 </template>
 

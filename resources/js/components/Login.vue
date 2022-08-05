@@ -88,7 +88,7 @@
               <h2>Google prijava</h2>
             </div>
           </Button>
-          <router-link to="#">Zaboravili ste lozinku?</router-link>
+          <router-link to="/forgot">Zaboravili ste lozinku?</router-link>
         </b-col>
       </b-row>
     </b-container>
@@ -123,9 +123,16 @@ export default {
       const res = await this.callApi("post", "/user/login", this.userData);
       if (res.status === 200) {
         this.success("Uspješno ulogiranje !");
-        await setTimeout(function() {
-          window.location = "/";
-        }, 1500);
+        if (this.$route.name !== "checkoutUser") {
+          console.log(this.$route.name);
+          this.loging = false;
+          await setTimeout(function() {
+            window.location = "/";
+          }, 1500);
+        } else {
+          console.log(this.$route.name);
+          window.location.reload();
+        }
       } else {
         if (res.status === 401) {
           this.error(res.data.msg);

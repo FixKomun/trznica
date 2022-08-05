@@ -129,6 +129,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.form-control {
+  &:hover {
+    margin-bottom: 25px;
+  }
+  &:focus {
+    margin-bottom: 24px;
+  }
+}
 h1 {
   font-size: 2rem;
 }

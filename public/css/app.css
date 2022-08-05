@@ -27,12 +27,14 @@ main {
 .form-control:hover,
 .vue-tel-input:hover,
 .custom-select:hover {
+  margin: 0px;
   box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important;
 }
 .form-control:focus,
 .vue-tel-input:focus,
 .custom-select:focus {
   border: none;
+  margin: 1px;
   box-shadow: 0 0 3pt 1pt #4ca456 !important;
   outline-width: 0px !important;
 }

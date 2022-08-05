@@ -55,7 +55,7 @@
       <div class="item-list">
         <img :src="item_img1" alt />
 
-        <img :src="item_img1" alt />
+        <img :src="item_img2" alt />
 
         <div class="register">
           <h2>
@@ -66,9 +66,9 @@
               <br />
             </span>na web tržnicu?
           </h2>
-          <router-link to="/register_OPG" class="button">Registriraj OPG</router-link>
+          <router-link to="/registracija" class="button">Registriraj se!</router-link>
         </div>
-        <img :src="item_img1" alt />
+        <img :src="item_img3" alt />
       </div>
       <b-container class="top-categories">
         <h1>ISTRAŽI KATEGORIJE</h1>
@@ -171,6 +171,8 @@
 import carousel_img1 from "../assets/img/wheat.jpg";
 import carousel_img2 from "../assets/img/vegetables.jpg";
 import item_img1 from "../assets/img/strawberries.jpg";
+import item_img2 from "../assets/img/peaches.jpeg";
+import item_img3 from "../assets/img/grapes.jpeg";
 import delivery from "../assets/img/delivery.jpg";
 import apples from "../assets/img/apples.jpg";
 import LeftNav from "../components/LeftNav";
@@ -199,6 +201,8 @@ export default {
       carousel_img1: carousel_img1,
       carousel_img2: carousel_img2,
       item_img1: item_img1,
+      item_img2: item_img2,
+      item_img3: item_img3,
       apples: apples,
       delivery: delivery,
       //CATEGORIES IMAGES

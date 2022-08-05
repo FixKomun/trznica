@@ -185,7 +185,7 @@ export default {
         "product/upload-product",
         this.productData
       );
-      if (res.status === 201) {
+      if (res.status === 200) {
         this.success("Proizvod je uspješno kreiran, vraćamo vas na tržnicu...");
         setTimeout(function() {
           window.location = "/#/trznica";
@@ -208,7 +208,7 @@ export default {
       var image = this.productData.image;
       this.productData.image = "";
       this.$refs.uploads.clearFiles();
-      console.log(image);
+      //console.log(image);
 
       const res = await this.callApi("post", "/product/delete-image", {
         imageName: image
@@ -223,7 +223,7 @@ export default {
     this.token = window.Laravel.csrfToken;
     const res = await this.callApi("get", "/get-category");
     if (res.status === 200) {
-      console.log(res.data);
+      //console.log(res.data);
       this.categoryList = res.data;
     } else {
       this.error("Neuspješno spajanje sa bazom podataka");

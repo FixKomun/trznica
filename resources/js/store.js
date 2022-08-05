@@ -7,16 +7,16 @@ function updateCartLocalStorage(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 function updateOrderUserLocalStorage(orderUserInfo) {
-    localStorage.setItem("order-userInfo", JSON.stringify(orderUserInfo));
+    localStorage.setItem("order_userInfo", JSON.stringify(orderUserInfo));
 }
 function updateOrderDeliveryLocalStorage(orderDeliveryInfo) {
     localStorage.setItem(
-        "order-deliveryInfo",
+        "order_deliveryInfo",
         JSON.stringify(orderDeliveryInfo)
     );
 }
 function updateOrderPaymentLocalStorage(orderPaymentInfo) {
-    localStorage.setItem("order-paymentInfo", JSON.stringify(orderPaymentInfo));
+    localStorage.setItem("order_paymentInfo", JSON.stringify(orderPaymentInfo));
 }
 
 export default new Vuex.Store({
@@ -38,6 +38,8 @@ export default new Vuex.Store({
             deliveryInfo: "",
             paymentInfo: "",
         },
+        search: "",
+        cardElement: {},
     },
     getters: {
         getProductQuantity: (state) => (product) => {
@@ -110,10 +112,10 @@ export default new Vuex.Store({
             }
         },
         updateOrderFromLocaleStorage(state) {
-            const order_userInfo = localStorage.getItem("order-userInfo");
+            const order_userInfo = localStorage.getItem("order_userInfo");
             const order_deliveryInfo =
-                localStorage.getItem("order-deliveryInfo");
-            const order_paymentInfo = localStorage.getItem("order-paymentInfo");
+                localStorage.getItem("order_deliveryInfo");
+            const order_paymentInfo = localStorage.getItem("order_paymentInfo");
             if (order_userInfo) {
                 state.order.userInfo = JSON.parse(order_userInfo);
             }
@@ -135,6 +137,9 @@ export default new Vuex.Store({
         addPaymentInfoToOrder(state, paymentInfo) {
             state.order.paymentInfo = paymentInfo;
             updateOrderPaymentLocalStorage(state.order.paymentInfo);
+        },
+        addCardElement(state, cardElement) {
+            state.cardElement = cardElement;
         },
     },
 });

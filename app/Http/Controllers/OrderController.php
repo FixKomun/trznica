@@ -2,33 +2,29 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\OrderDeliveryRequest;
+use App\Http\Requests\OrderUserRequest;
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Interfaces\OrderRepositoryInterface;
 
 class OrderController extends Controller
 {
-    public function validateUser(Request $request)
+    public function __construct(OrderRepositoryInterface $orderRepository)
     {
-        $this->validate($request, [
-            'firstName' => 'required|max:30',
-            'lastName' => 'required|max:30',
-            'email' => 'bail|required|email|max:40',
-            'phoneNumber' => 'required|max:17'
-        ]);
+        $this->orderRepository = $orderRepository;
     }
-    public function validateDelivery(Request $request)
+    public function validateUser(OrderUserRequest $request)
     {
-        $this->validate($request, [
-            'address' => 'required|max:50',
-            'zipCode' => 'bail|required|numeric|',
-            'country' => 'bail|required|string|max:30',
-            'city' => 'bail|required|string|max:30',
-        ]);
+        $request->validated();
+    }
+    public function validateDelivery(OrderDeliveryRequest $request)
+    {
+        $request->validated();
     }
     public function uploadOrder(Request $request)
     {
-        $order = Order::create([
+
+        $orderDetails = ([
             'firstName' => $request->firstName,
             'lastName' => $request->lastName,
             'email' => $request->email,
@@ -38,8 +34,11 @@ class OrderController extends Controller
             'country' => $request->country,
             'city' => $request->city,
             'selectedPayment' => $request->selectedPayment,
-            'products' => $request->products
+            'products' => $request->products,
         ]);
-        return $order;
+
+        return response()->json([
+            'data' => $this->orderRepository->uploadOrder($orderDetails)
+        ]);
     }
 }
