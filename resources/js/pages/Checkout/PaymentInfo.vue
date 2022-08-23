@@ -529,7 +529,7 @@
                       order.userInfo.lastName
                       }}
                     </h3>
-                    <h3>{{ order.userInfo.address }}</h3>
+                    <h3>{{ order.deliveryInfo.address }}</h3>
                     <h3>
                       {{
                       order.deliveryInfo.zipCode +
@@ -557,7 +557,7 @@
                 <div class="left">
                   <h2>{{ product_quantity(product) }}x</h2>
                   <img :src="product.image" alt />
-                  <h2>{{ product.description }}</h2>
+                  <h2>{{ product.name }}</h2>
                 </div>
                 <div class="right">
                   <h3 class="price">
@@ -694,7 +694,7 @@ export default {
     async initPayPal() {
       const script = document.createElement("script");
       script.src =
-        "https://www.paypal.com/sdk/js?client-id=AW0qHXXLthqOIIQ2hH69lr7Wq8K_b2v8PFEUPFNwhaN0V8B4ATYlyshfjXp6k_j-C6dFrCXi_WdmOk7h";
+        "https://www.paypal.com/sdk/js?client-id=AW0qHXXLthqOIIQ2hH69lr7Wq8K_b2v8PFEUPFNwhaN0V8B4ATYlyshfjXp6k_j-C6dFrCXi_WdmOk7h&disable-funding=credit,card";
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
     },
